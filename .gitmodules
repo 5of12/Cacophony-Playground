@@ -1,0 +1,6 @@
+[submodule "Assets/cacophony"]
+	path = Assets/cacophony
+	url = https://github.com/fiveoftwelve/cacophony.git
+[submodule "Assets/Plugins/cacophony"]
+	path = Assets/Plugins/cacophony
+	url = https://github.com/fiveoftwelve/cacophony.git

@@ -124,71 +124,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8639571069925577598, guid: 8163655ae6e81f149b112acc9972a9d3, type: 3}
   m_PrefabInstance: {fileID: 1974808391}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &92225147
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1002566061}
-    m_Modifications:
-    - target: {fileID: 1251021304087874111, guid: 2313a06b8b4174143b0e081b3a2cc1f6, type: 3}
-      propertyPath: m_Name
-      value: FiveGestureManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 4909571212387648801, guid: 2313a06b8b4174143b0e081b3a2cc1f6, type: 3}
-      propertyPath: leap
-      value: 
-      objectReference: {fileID: 529411721}
-    - target: {fileID: 6633650483320682857, guid: 2313a06b8b4174143b0e081b3a2cc1f6, type: 3}
-      propertyPath: shapeGenerator
-      value: 
-      objectReference: {fileID: 1413867091}
-    - target: {fileID: 8791396342675748810, guid: 2313a06b8b4174143b0e081b3a2cc1f6, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8791396342675748810, guid: 2313a06b8b4174143b0e081b3a2cc1f6, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8791396342675748810, guid: 2313a06b8b4174143b0e081b3a2cc1f6, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8791396342675748810, guid: 2313a06b8b4174143b0e081b3a2cc1f6, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8791396342675748810, guid: 2313a06b8b4174143b0e081b3a2cc1f6, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8791396342675748810, guid: 2313a06b8b4174143b0e081b3a2cc1f6, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8791396342675748810, guid: 2313a06b8b4174143b0e081b3a2cc1f6, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8791396342675748810, guid: 2313a06b8b4174143b0e081b3a2cc1f6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8791396342675748810, guid: 2313a06b8b4174143b0e081b3a2cc1f6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8791396342675748810, guid: 2313a06b8b4174143b0e081b3a2cc1f6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2313a06b8b4174143b0e081b3a2cc1f6, type: 3}
 --- !u!1 &295530267
 GameObject:
   m_ObjectHideFlags: 0
@@ -1021,8 +956,8 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1070201896 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 8791396342675748810, guid: 2313a06b8b4174143b0e081b3a2cc1f6, type: 3}
-  m_PrefabInstance: {fileID: 92225147}
+  m_CorrespondingSourceObject: {fileID: 1122249957633684780, guid: 17fad9e4d6fbe44668239fa54bd4ae57, type: 3}
+  m_PrefabInstance: {fileID: 5951511572082236631}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1413867090
 GameObject:
@@ -1893,6 +1828,10 @@ PrefabInstance:
       propertyPath: shapeGenerator
       value: 
       objectReference: {fileID: 1413867091}
+    - target: {fileID: 5989462068612133340, guid: 02c745e9d3c474f3ca39dc48eaa5f1b5, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9084915729991606410, guid: 02c745e9d3c474f3ca39dc48eaa5f1b5, type: 3}
       propertyPath: m_Name
       value: ThreeGestureManager
@@ -1969,6 +1908,10 @@ PrefabInstance:
       propertyPath: leap
       value: 
       objectReference: {fileID: 529411721}
+    - target: {fileID: 4644469666117348208, guid: f85c78d341d6c4b929cffc74410dcfc6, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7889948319715113510, guid: f85c78d341d6c4b929cffc74410dcfc6, type: 3}
       propertyPath: m_Name
       value: OneGestureManager
@@ -1994,6 +1937,10 @@ PrefabInstance:
     - target: {fileID: 1251021304087874111, guid: 2313a06b8b4174143b0e081b3a2cc1f6, type: 3}
       propertyPath: m_Name
       value: FourGestureManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4347741118563474281, guid: 2313a06b8b4174143b0e081b3a2cc1f6, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4909571212387648801, guid: 2313a06b8b4174143b0e081b3a2cc1f6, type: 3}
       propertyPath: leap
@@ -2048,6 +1995,75 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2313a06b8b4174143b0e081b3a2cc1f6, type: 3}
+--- !u!1001 &5951511572082236631
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1002566061}
+    m_Modifications:
+    - target: {fileID: 1122249957633684780, guid: 17fad9e4d6fbe44668239fa54bd4ae57, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1122249957633684780, guid: 17fad9e4d6fbe44668239fa54bd4ae57, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1122249957633684780, guid: 17fad9e4d6fbe44668239fa54bd4ae57, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1122249957633684780, guid: 17fad9e4d6fbe44668239fa54bd4ae57, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1122249957633684780, guid: 17fad9e4d6fbe44668239fa54bd4ae57, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1122249957633684780, guid: 17fad9e4d6fbe44668239fa54bd4ae57, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1122249957633684780, guid: 17fad9e4d6fbe44668239fa54bd4ae57, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1122249957633684780, guid: 17fad9e4d6fbe44668239fa54bd4ae57, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1122249957633684780, guid: 17fad9e4d6fbe44668239fa54bd4ae57, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1122249957633684780, guid: 17fad9e4d6fbe44668239fa54bd4ae57, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1551214644255960125, guid: 17fad9e4d6fbe44668239fa54bd4ae57, type: 3}
+      propertyPath: handGesture
+      value: 
+      objectReference: {fileID: 11400000, guid: bfc028bac726d4560800475e795ffbe5, type: 2}
+    - target: {fileID: 2998603440600759183, guid: 17fad9e4d6fbe44668239fa54bd4ae57, type: 3}
+      propertyPath: shapeGenerator
+      value: 
+      objectReference: {fileID: 1413867091}
+    - target: {fileID: 3580384826201556935, guid: 17fad9e4d6fbe44668239fa54bd4ae57, type: 3}
+      propertyPath: leap
+      value: 
+      objectReference: {fileID: 529411721}
+    - target: {fileID: 7263986488456661209, guid: 17fad9e4d6fbe44668239fa54bd4ae57, type: 3}
+      propertyPath: m_Name
+      value: FiveGestureManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 17fad9e4d6fbe44668239fa54bd4ae57, type: 3}
 --- !u!1001 &6481280014797827520
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2107,6 +2123,10 @@ PrefabInstance:
     - target: {fileID: 6855841954793409636, guid: d0ef9bd4e01f14f389b451ccf09977c9, type: 3}
       propertyPath: m_Name
       value: TwoGestureManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8227537017498574130, guid: d0ef9bd4e01f14f389b451ccf09977c9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

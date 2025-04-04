@@ -370,7 +370,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gestureDetector: {fileID: 2033202093644308162}
-  actionProcessor: {fileID: 11400000, guid: c4537aa5aa0cd4c3bae5e54983fa4e29, type: 2}
+  actionProcessor: {fileID: 11400000, guid: 9759cc535318646e5a2ffebe04d4b89f, type: 2}
   initOnStart: 1
   Ready:
     m_PersistentCalls:

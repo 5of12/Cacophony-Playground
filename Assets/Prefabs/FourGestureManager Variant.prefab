@@ -19,7 +19,7 @@ PrefabInstance:
     - target: {fileID: 1107254395041662062, guid: 02c745e9d3c474f3ca39dc48eaa5f1b5, type: 3}
       propertyPath: handGesture
       value: 
-      objectReference: {fileID: 11400000, guid: bfc028bac726d4560800475e795ffbe5, type: 2}
+      objectReference: {fileID: 11400000, guid: 259a47b75d9ba4a12b9f499fdd623401, type: 2}
     - target: {fileID: 1533985720161770879, guid: 02c745e9d3c474f3ca39dc48eaa5f1b5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -62,7 +62,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3695179787354362844, guid: 02c745e9d3c474f3ca39dc48eaa5f1b5, type: 3}
       propertyPath: numTargets
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9084915729991606410, guid: 02c745e9d3c474f3ca39dc48eaa5f1b5, type: 3}
       propertyPath: m_Name

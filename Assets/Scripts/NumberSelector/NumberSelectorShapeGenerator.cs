@@ -41,7 +41,7 @@ public class NumberSelectorShapeGenerator : MonoBehaviour
                     float sizeFactor = Random.Range(minSize, maxSize);
                     shape.transform.localScale = new Vector3(sizeFactor, sizeFactor, sizeFactor);
                     shape.transform.parent = shapeParent.transform; // Set the parent to this object
-
+                    shape.GetComponent<Rigidbody>().mass = sizeFactor * 5f;
                     shapes.Add(shape.GetComponent<Rigidbody>());
                     // shape.GetComponentInChildren<Renderer>().material.color = gradient.Evaluate(Random.Range(0f, 1f));
                 }

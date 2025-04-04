@@ -20,6 +20,14 @@ PrefabInstance:
       propertyPath: numTargets
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 6923542836493840091, guid: 2313a06b8b4174143b0e081b3a2cc1f6, type: 3}
+      propertyPath: handGesture
+      value: 
+      objectReference: {fileID: 11400000, guid: bfc028bac726d4560800475e795ffbe5, type: 2}
+    - target: {fileID: 6923542836493840091, guid: 2313a06b8b4174143b0e081b3a2cc1f6, type: 3}
+      propertyPath: readyGesture
+      value: 
+      objectReference: {fileID: 11400000, guid: bfc028bac726d4560800475e795ffbe5, type: 2}
     - target: {fileID: 8791396342675748810, guid: 2313a06b8b4174143b0e081b3a2cc1f6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

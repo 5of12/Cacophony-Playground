@@ -457,7 +457,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  readyGesture: {fileID: 11400000, guid: bedb7a962d70743ad9c029f3446978fe, type: 2}
+  readyGesture: {fileID: 11400000, guid: 7d0bcc4906f5b4281a6d6c676b731131, type: 2}
   handGesture: {fileID: 11400000, guid: 7d0bcc4906f5b4281a6d6c676b731131, type: 2}
   _confidence: 0
   state: 0

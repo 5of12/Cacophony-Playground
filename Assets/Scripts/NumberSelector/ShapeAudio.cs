@@ -16,7 +16,7 @@ public class ShapeAudio : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         float velocity = collision.relativeVelocity.magnitude;
-        if (velocity > minCollisionVelocity && !audioSource.isPlaying)
+        if (collision.rigidbody != null && velocity > minCollisionVelocity && !audioSource.isPlaying)
         {
             audioSource.pitch = Random.Range(0.5f, 2f) + velocity / collision.rigidbody.mass;
             audioSource.volume = Mathf.Min(velocity - minCollisionVelocity, 1);

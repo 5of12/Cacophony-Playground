@@ -60,6 +60,10 @@ PrefabInstance:
       propertyPath: handGesture
       value: 
       objectReference: {fileID: 11400000, guid: 9820bbfe2001d451196b75c9abfd1e2d, type: 2}
+    - target: {fileID: 2033202093644308162, guid: f85c78d341d6c4b929cffc74410dcfc6, type: 3}
+      propertyPath: readyGesture
+      value: 
+      objectReference: {fileID: 11400000, guid: 9820bbfe2001d451196b75c9abfd1e2d, type: 2}
     - target: {fileID: 2318591816845805936, guid: f85c78d341d6c4b929cffc74410dcfc6, type: 3}
       propertyPath: numTargets
       value: 3

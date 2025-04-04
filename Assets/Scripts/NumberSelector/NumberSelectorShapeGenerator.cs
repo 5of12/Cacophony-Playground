@@ -6,8 +6,6 @@ public class NumberSelectorShapeGenerator : MonoBehaviour
 {
     public Transform targetObject;
     public List<Transform> subTargets;
-    public List<AudioClip> soundClips;
-    public AudioSource audioSource;
     public GameObject shapePrefab;
     public Vector3 numShapes = new Vector3(20, 5, 10);
     public float minSize = 0.1f;
@@ -122,13 +120,6 @@ public class NumberSelectorShapeGenerator : MonoBehaviour
             maxForce = 4f;
             // Attract shapes to the targets
             AttractShapesToTarget(subTargets);
-
-            audioSource.Stop();
-            audioSource.PlayOneShot(soundClips[targetId - 1]);
-        }
-        else
-        {
-            audioSource.volume = 0.5f + progress * 0.5f;
         }
     }
 

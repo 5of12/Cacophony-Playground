@@ -24,9 +24,9 @@ public class NumberSelectorShape : MonoBehaviour
 
     private void OnGestureStart(float progress)
     {
-        if (progress < 0.1f)
+        if (progress < 0.2f)
         {
-            shapeGenerator.SetTargetCount(numTargets);
+            shapeGenerator.SetTargetCount(numTargets, progress);
         }
     }
 

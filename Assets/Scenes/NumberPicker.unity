@@ -136,34 +136,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: FiveGestureManager
       objectReference: {fileID: 0}
-    - target: {fileID: 1251021304087874111, guid: 2313a06b8b4174143b0e081b3a2cc1f6, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2925998694403124707, guid: 2313a06b8b4174143b0e081b3a2cc1f6, type: 3}
-      propertyPath: actionProcessor
-      value: 
-      objectReference: {fileID: 11400000, guid: c4537aa5aa0cd4c3bae5e54983fa4e29, type: 2}
     - target: {fileID: 4909571212387648801, guid: 2313a06b8b4174143b0e081b3a2cc1f6, type: 3}
       propertyPath: leap
       value: 
       objectReference: {fileID: 529411721}
     - target: {fileID: 6633650483320682857, guid: 2313a06b8b4174143b0e081b3a2cc1f6, type: 3}
-      propertyPath: numTargets
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6633650483320682857, guid: 2313a06b8b4174143b0e081b3a2cc1f6, type: 3}
       propertyPath: shapeGenerator
       value: 
       objectReference: {fileID: 1413867091}
-    - target: {fileID: 6923542836493840091, guid: 2313a06b8b4174143b0e081b3a2cc1f6, type: 3}
-      propertyPath: handGesture
-      value: 
-      objectReference: {fileID: 11400000, guid: 65e799135e9bb4eb39bd20ee18b8f7c1, type: 2}
-    - target: {fileID: 7407768277408988071, guid: 2313a06b8b4174143b0e081b3a2cc1f6, type: 3}
-      propertyPath: m_Name
-      value: GestureConsumerFive
-      objectReference: {fileID: 0}
     - target: {fileID: 8791396342675748810, guid: 2313a06b8b4174143b0e081b3a2cc1f6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -234,9 +214,9 @@ Transform:
   m_GameObject: {fileID: 295530267}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: -2, z: 1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 3, y: -1.5, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 650883726}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -446,6 +426,7 @@ GameObject:
   - component: {fileID: 490928579}
   - component: {fileID: 490928578}
   - component: {fileID: 490928577}
+  - component: {fileID: 490928581}
   m_Layer: 0
   m_Name: TargetSphere
   m_TagString: Untagged
@@ -546,6 +527,103 @@ Transform:
   - {fileID: 650883726}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &490928581
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 490928576}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &493365710
 GameObject:
   m_ObjectHideFlags: 0
@@ -755,9 +833,9 @@ Transform:
   m_GameObject: {fileID: 742075237}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3, y: -2, z: 1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: -3, y: -1.5, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 650883726}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -786,9 +864,9 @@ Transform:
   m_GameObject: {fileID: 755033066}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2, y: 2, z: 1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: -2, y: 2.5, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 650883726}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -914,7 +992,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1002566061}
   m_Layer: 0
-  m_Name: GestureSystem
+  m_Name: NumberPoseGestureSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -979,46 +1057,22 @@ MonoBehaviour:
   targetObject: {fileID: 490928580}
   subTargets:
   - {fileID: 755033067}
-  - {fileID: 1470081974}
-  - {fileID: 742075238}
-  - {fileID: 1490425319}
   - {fileID: 295530268}
+  - {fileID: 742075238}
+  - {fileID: 1470081974}
+  - {fileID: 1490425319}
+  soundClips:
+  - {fileID: 8300000, guid: 93e55cd71a7cf432196dd7828c09aabe, type: 3}
+  - {fileID: 8300000, guid: e28f4e209419d4a39b4b899a5441b34b, type: 3}
+  - {fileID: 8300000, guid: 97074197a58714be7bd5642372575416, type: 3}
+  - {fileID: 8300000, guid: d04a6da1786704ae3863ff79ddd6a616, type: 3}
+  - {fileID: 8300000, guid: 7f13745d58e734ffa8871e2e1cfb0ce4, type: 3}
+  audioSource: {fileID: 490928581}
   shapePrefab: {fileID: 8768628682468224870, guid: 007bb8e7a1e1243f88ec31e446d2b74b, type: 3}
-  gradient:
-    serializedVersion: 2
-    key0: {r: 1, g: 0.9394553, b: 0.8627451, a: 1}
-    key1: {r: 1, g: 0.8858779, b: 0.7490196, a: 1}
-    key2: {r: 1, g: 0.60290617, b: 0.5990566, a: 0}
-    key3: {r: 1, g: 0.7720588, b: 0.7411765, a: 0}
-    key4: {r: 1, g: 0.9606025, b: 0.7411765, a: 0}
-    key5: {r: 0, g: 0, b: 0, a: 0}
-    key6: {r: 0, g: 0, b: 0, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 12518
-    ctime1: 25058
-    ctime2: 39444
-    ctime3: 53392
-    ctime4: 65535
-    ctime5: 0
-    ctime6: 0
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 1
-    m_ColorSpace: -1
-    m_NumColorKeys: 5
-    m_NumAlphaKeys: 2
   numShapes: {x: 5, y: 5, z: 5}
   minSize: 0.5
   maxSize: 5
   forceUpdateInterval: 0.1
-  shapes: []
 --- !u!33 &1413867093
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1072,9 +1126,9 @@ Transform:
   m_GameObject: {fileID: 1470081973}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2, y: 2, z: 1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 2, y: 2.5, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 650883726}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1150,8 +1204,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -3, z: 1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 650883726}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1780,7 +1834,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.48}
+  m_AnchoredPosition: {x: 0, y: -1.49}
   m_SizeDelta: {x: 4, y: 0.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &496169833079736750
@@ -1791,14 +1845,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1002566061}
     m_Modifications:
-    - target: {fileID: 443126213348687492, guid: 02c745e9d3c474f3ca39dc48eaa5f1b5, type: 3}
-      propertyPath: m_Name
-      value: NumberTargeter
-      objectReference: {fileID: 0}
-    - target: {fileID: 686008976571502866, guid: 02c745e9d3c474f3ca39dc48eaa5f1b5, type: 3}
-      propertyPath: m_Name
-      value: GestureConsumerThree
-      objectReference: {fileID: 0}
     - target: {fileID: 1533985720161770879, guid: 02c745e9d3c474f3ca39dc48eaa5f1b5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1844,30 +1890,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 529411721}
     - target: {fileID: 3695179787354362844, guid: 02c745e9d3c474f3ca39dc48eaa5f1b5, type: 3}
-      propertyPath: numTargets
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3695179787354362844, guid: 02c745e9d3c474f3ca39dc48eaa5f1b5, type: 3}
       propertyPath: shapeGenerator
       value: 
       objectReference: {fileID: 1413867091}
-    - target: {fileID: 5175660479812405078, guid: 02c745e9d3c474f3ca39dc48eaa5f1b5, type: 3}
-      propertyPath: actionProcessor
-      value: 
-      objectReference: {fileID: 11400000, guid: c4537aa5aa0cd4c3bae5e54983fa4e29, type: 2}
     - target: {fileID: 9084915729991606410, guid: 02c745e9d3c474f3ca39dc48eaa5f1b5, type: 3}
       propertyPath: m_Name
       value: ThreeGestureManager
       objectReference: {fileID: 0}
-    - target: {fileID: 9084915729991606410, guid: 02c745e9d3c474f3ca39dc48eaa5f1b5, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 5905057288788071733, guid: 02c745e9d3c474f3ca39dc48eaa5f1b5, type: 3}
-    - {fileID: 5541024950753200523, guid: 02c745e9d3c474f3ca39dc48eaa5f1b5, type: 3}
-    - {fileID: 4454243811623218415, guid: 02c745e9d3c474f3ca39dc48eaa5f1b5, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02c745e9d3c474f3ca39dc48eaa5f1b5, type: 3}
@@ -1930,10 +1961,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1534861573720564776, guid: f85c78d341d6c4b929cffc74410dcfc6, type: 3}
-      propertyPath: m_Name
-      value: NumberTargeter
-      objectReference: {fileID: 0}
     - target: {fileID: 2318591816845805936, guid: f85c78d341d6c4b929cffc74410dcfc6, type: 3}
       propertyPath: shapeGenerator
       value: 
@@ -1942,17 +1969,12 @@ PrefabInstance:
       propertyPath: leap
       value: 
       objectReference: {fileID: 529411721}
-    - target: {fileID: 6104914349756915194, guid: f85c78d341d6c4b929cffc74410dcfc6, type: 3}
-      propertyPath: actionProcessor
-      value: 
-      objectReference: {fileID: 11400000, guid: c4537aa5aa0cd4c3bae5e54983fa4e29, type: 2}
     - target: {fileID: 7889948319715113510, guid: f85c78d341d6c4b929cffc74410dcfc6, type: 3}
       propertyPath: m_Name
       value: OneGestureManager
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 3367012110998812227, guid: f85c78d341d6c4b929cffc74410dcfc6, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f85c78d341d6c4b929cffc74410dcfc6, type: 3}
@@ -1973,14 +1995,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: FourGestureManager
       objectReference: {fileID: 0}
-    - target: {fileID: 1251021304087874111, guid: 2313a06b8b4174143b0e081b3a2cc1f6, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2925998694403124707, guid: 2313a06b8b4174143b0e081b3a2cc1f6, type: 3}
-      propertyPath: actionProcessor
-      value: 
-      objectReference: {fileID: 11400000, guid: c4537aa5aa0cd4c3bae5e54983fa4e29, type: 2}
     - target: {fileID: 4909571212387648801, guid: 2313a06b8b4174143b0e081b3a2cc1f6, type: 3}
       propertyPath: leap
       value: 
@@ -1989,10 +2003,6 @@ PrefabInstance:
       propertyPath: shapeGenerator
       value: 
       objectReference: {fileID: 1413867091}
-    - target: {fileID: 7407768277408988071, guid: 2313a06b8b4174143b0e081b3a2cc1f6, type: 3}
-      propertyPath: m_Name
-      value: GestureConsumerFour
-      objectReference: {fileID: 0}
     - target: {fileID: 8791396342675748810, guid: 2313a06b8b4174143b0e081b3a2cc1f6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2051,21 +2061,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 529411721}
     - target: {fileID: 1330575266142601010, guid: d0ef9bd4e01f14f389b451ccf09977c9, type: 3}
-      propertyPath: numTargets
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1330575266142601010, guid: d0ef9bd4e01f14f389b451ccf09977c9, type: 3}
       propertyPath: shapeGenerator
       value: 
       objectReference: {fileID: 1413867091}
-    - target: {fileID: 2816581169387377258, guid: d0ef9bd4e01f14f389b451ccf09977c9, type: 3}
-      propertyPath: m_Name
-      value: NumberTargeter
-      objectReference: {fileID: 0}
-    - target: {fileID: 2933528704638942716, guid: d0ef9bd4e01f14f389b451ccf09977c9, type: 3}
-      propertyPath: m_Name
-      value: GestureConsumerTwo
-      objectReference: {fileID: 0}
     - target: {fileID: 3781056340713009553, guid: d0ef9bd4e01f14f389b451ccf09977c9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2110,18 +2108,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: TwoGestureManager
       objectReference: {fileID: 0}
-    - target: {fileID: 6855841954793409636, guid: d0ef9bd4e01f14f389b451ccf09977c9, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7413891041600957368, guid: d0ef9bd4e01f14f389b451ccf09977c9, type: 3}
-      propertyPath: actionProcessor
-      value: 
-      objectReference: {fileID: 11400000, guid: c4537aa5aa0cd4c3bae5e54983fa4e29, type: 2}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 537739848190164397, guid: d0ef9bd4e01f14f389b451ccf09977c9, type: 3}
-    - {fileID: 2080780067010822145, guid: d0ef9bd4e01f14f389b451ccf09977c9, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0ef9bd4e01f14f389b451ccf09977c9, type: 3}

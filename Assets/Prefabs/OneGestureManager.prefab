@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 6110715013695034355}
   - component: {fileID: 2318591816845805936}
   m_Layer: 0
-  m_Name: NumberTarget
+  m_Name: NumberTargeter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -91,8 +91,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 2.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 3798031919310339399}
+  m_Children: []
   m_Father: {fileID: 442319697196517331}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2318591816845805936
@@ -108,8 +107,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shapeGenerator: {fileID: 0}
-  numTargets: 1
   gestureConsumer: {fileID: 7351313229680917995}
+  numTargets: 1
 --- !u!1 &1940929457108487102
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,37 +169,6 @@ MonoBehaviour:
   OnGestureCancel:
     m_PersistentCalls:
       m_Calls: []
---- !u!1 &3367012110998812227
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3798031919310339399}
-  m_Layer: 0
-  m_Name: Target (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3798031919310339399
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3367012110998812227}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6110715013695034355}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6451492762796427102
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,8 +314,8 @@ MonoBehaviour:
   manager: {fileID: 6104914349756915194}
   audioSource: {fileID: 5402915984763825024}
   debounceTimer: 0.1
-  pitchShiftRange: 0.25
-  start: {fileID: 8300000, guid: 05129e4ddcf49498c98cf357df2aa669, type: 3}
+  pitchShiftRange: 0
+  start: {fileID: 0}
   hold: {fileID: 0}
   end: {fileID: 8300000, guid: 5865393744c0a4ea099efed002699b55, type: 3}
   cancel: {fileID: 0}
@@ -402,8 +370,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gestureDetector: {fileID: 2033202093644308162}
-  actionProcessor: {fileID: 11400000, guid: 191dd462daa5d463686236a7d4d28164, type: 2}
+  actionProcessor: {fileID: 11400000, guid: c4537aa5aa0cd4c3bae5e54983fa4e29, type: 2}
   initOnStart: 1
+  Ready:
+    m_PersistentCalls:
+      m_Calls: []
   currentHandPose:
     thumb:
       curl: 0

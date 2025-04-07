@@ -376,7 +376,7 @@ MonoBehaviour:
   moveDownGesture: {fileID: 91820045}
   confirmGesture: {fileID: 1694039956}
   posIndicator: {fileID: 168014511}
-  moveDistance: {x: 100, y: 100}
+  moveDistance: {x: 108, y: 108}
   mainCanvas: {fileID: 330467606}
   audioSource: {fileID: 1210321103}
   showMenuAudio: {fileID: 8300000, guid: 13e0cc9056018495794bfc58a5360d13, type: 3}

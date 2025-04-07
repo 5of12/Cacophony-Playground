@@ -20,8 +20,64 @@ public class HandyPadController : MonoBehaviour
     public Vector2 moveDistance = new(100, 100);
 
     public CanvasGroup mainCanvas;
-    public bool isShown = false;
-    public bool isAnimating = false;
+    private bool isShown = false;
+    private bool isAnimating = false;
+
+    [Header("Audio")]
+    public AudioSource audioSource;
+    public AudioClip showMenuAudio;
+    public AudioClip hideMenuAudio;
+    public AudioClip moveOptionAudio;
+
+    private void PlayShowAudio()
+    {
+        audioSource.PlayOneShot(showMenuAudio);
+    }
+
+    private void PlayHideAudio()
+    {
+        audioSource.PlayOneShot(hideMenuAudio);
+    }
+
+    private void PlayMoveAudio()
+    {
+        audioSource.PlayOneShot(moveOptionAudio);
+    }
+
+    public void ShowMenu()
+    {
+        isAnimating = true;
+        mainCanvas.transform.DOScale(1, 0.3f);
+        mainCanvas.DOFade(1, 0.3f).OnComplete(() =>
+        {
+            isAnimating = false;
+            isShown = !isShown;
+            // If NOT shown, reset the position...
+            if (!isShown)
+            {
+                ResetMenuPosition();
+            }
+        });
+        PlayShowAudio();
+    }
+
+    public void HideMenu()
+    {
+        isAnimating = true;
+        mainCanvas.transform.DOScale(0, 0.3f);
+        mainCanvas.DOFade(0, 0.3f).OnComplete(() =>
+        {
+            isAnimating = false;
+            isShown = !isShown;
+            // If NOT shown, reset the position...
+            if (!isShown)
+            {
+                ResetMenuPosition();
+            }
+        });
+        PlayHideAudio();
+    }
+
 
     private bool CanDetect()
     {
@@ -41,20 +97,14 @@ public class HandyPadController : MonoBehaviour
 
     private void HandleShowHide()
     {
-        float fadeValue = isShown ? 0f : 1f;
-        float scaleValue = isShown ? 0f : 1f;
-        isAnimating = true;
-        mainCanvas.transform.DOScale(scaleValue, 0.3f);
-        mainCanvas.DOFade(fadeValue, 0.3f).OnComplete(() =>
+        if (isShown)
         {
-            isAnimating = false;
-            isShown = !isShown;
-            // If NOT shown, reset the position...
-            if (!isShown)
-            {
-                ResetMenuPosition();
-            }
-        });
+            HideMenu();
+        }
+        else
+        {
+            ShowMenu();
+        }
     }
 
     public void ResetMenuPosition()
@@ -72,6 +122,7 @@ public class HandyPadController : MonoBehaviour
         if (CanDetect())
         {
             isAnimating = true;
+            PlayMoveAudio();
             posIndicator.rectTransform.DOAnchorPos(new Vector2(-moveDistance.x, 0f), 0.3f).OnComplete(() =>
             {
                 isAnimating = false;
@@ -83,6 +134,7 @@ public class HandyPadController : MonoBehaviour
         if (CanDetect())
         {
             isAnimating = true;
+            PlayMoveAudio();
             posIndicator.rectTransform.DOAnchorPos(new Vector2(moveDistance.x, 0f), 0.3f).OnComplete(() =>
             {
                 isAnimating = false;
@@ -95,6 +147,7 @@ public class HandyPadController : MonoBehaviour
         if (CanDetect())
         {
             isAnimating = true;
+            PlayMoveAudio();
             posIndicator.rectTransform.DOAnchorPos(new Vector2(0f, moveDistance.y), 0.5f).OnComplete(() =>
             {
                 isAnimating = false;
@@ -107,6 +160,7 @@ public class HandyPadController : MonoBehaviour
         if (CanDetect())
         {
             isAnimating = true;
+            PlayMoveAudio();
             posIndicator.rectTransform.DOAnchorPos(new Vector2(0f, -moveDistance.y), 0.5f).OnComplete(() =>
             {
                 isAnimating = false;

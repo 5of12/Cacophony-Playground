@@ -370,6 +370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce93f444e53244a94a3a1b305e064d47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 0
   showHideGesture: {fileID: 2299373292672346976}
   moveLeftGesture: {fileID: 1673990312}
   moveRightGesture: {fileID: 1711415872}
@@ -382,6 +383,10 @@ MonoBehaviour:
   arrowIndicators: {fileID: 1316089561}
   hideOnStart: 1
   isShown: 0
+  leftSegment: {fileID: 1054896543}
+  rightSegment: {fileID: 1723855616}
+  upSegment: {fileID: 655356179}
+  downSegment: {fileID: 1460431745}
   interfaceAudio: 1
   audioSource: {fileID: 1210321103}
   showMenuAudio: {fileID: 8300000, guid: 13e0cc9056018495794bfc58a5360d13, type: 3}

@@ -11,6 +11,8 @@ public class HandyPadController : MonoBehaviour
     ///  Pinch + Move will trigger the four directional axis inputs.
     /// </summary>
     ///
+    public enum MenuState { HIDDEN, IDLE, LEFT, RIGHT, UP, DOWN };
+    public MenuState state;
     public GestureConsumerUnityEvents showHideGesture;
     public GestureConsumerUnityEvents moveLeftGesture;
     public GestureConsumerUnityEvents moveRightGesture;
@@ -25,6 +27,12 @@ public class HandyPadController : MonoBehaviour
     public bool hideOnStart;
     public bool isShown = false;
     private bool isAnimating = false;
+
+    [Header("UI")]
+    public Image leftSegment;
+    public Image rightSegment;
+    public Image upSegment;
+    public Image downSegment;
 
     [Header("Audio")]
     public bool interfaceAudio = true;
@@ -82,6 +90,7 @@ public class HandyPadController : MonoBehaviour
             isAnimating = false;
             isShown = true;
             OnMenuShown.Invoke();
+            state = MenuState.IDLE;
         });
         if (interfaceAudio && playAudio)
         {
@@ -104,13 +113,13 @@ public class HandyPadController : MonoBehaviour
                 ResetMenuPosition();
             }
             OnMenuHidden.Invoke();
+            state = MenuState.HIDDEN;
         });
         if (interfaceAudio && playAudio)
         {
             PlayHideAudio();
         }
     }
-
 
     private bool CanDetect()
     {
@@ -150,11 +159,25 @@ public class HandyPadController : MonoBehaviour
         {
             isAnimating = true;
             PlayMoveAudio();
-            posIndicator.rectTransform.DOAnchorPos(new Vector2(-moveDistance.x, 0f), 0.3f).OnComplete(() =>
+            
+            if (state != MenuState.LEFT)
             {
-                isAnimating = false;
-                OnLeftSelected.Invoke();
-            });
+                leftSegment.rectTransform.DOPunchAnchorPos(new Vector2(-5, 0), 0.5f, 1, 0.01f);
+                posIndicator.rectTransform.DOAnchorPos(new Vector2(-moveDistance.x, 0f), 0.3f).OnComplete(() =>
+                {
+                    isAnimating = false;
+                    OnLeftSelected.Invoke();
+                    state = MenuState.LEFT;
+                });
+            }
+            else
+            {
+                Debug.Log("DISMISS LEFT");
+                leftSegment.rectTransform.DOPunchScale(new Vector3(0.9f, 0.9f, 1f), 0.25f, 1, 0.01f).OnComplete(() =>
+                {
+                    HideMenu();
+                });
+            }
         }
     }
     private void HandleRight()
@@ -163,11 +186,24 @@ public class HandyPadController : MonoBehaviour
         {
             isAnimating = true;
             PlayMoveAudio();
-            posIndicator.rectTransform.DOAnchorPos(new Vector2(moveDistance.x, 0f), 0.3f).OnComplete(() =>
+            if (state != MenuState.RIGHT)
             {
-                isAnimating = false;
-                OnRightSelected.Invoke();
-            });
+                rightSegment.rectTransform.DOPunchAnchorPos(new Vector2(5, 0), 0.2f, 1, 0.01f);
+                posIndicator.rectTransform.DOAnchorPos(new Vector2(moveDistance.x, 0f), 0.3f).OnComplete(() =>
+                {
+                    isAnimating = false;
+                    OnRightSelected.Invoke();
+                    state = MenuState.RIGHT;
+                });
+            }
+            else
+            {
+                Debug.Log("DISMISS RIGHT");
+                rightSegment.rectTransform.DOPunchScale(new Vector3(0.9f, 0.9f, 1f), 0.25f, 1, 0.01f).OnComplete(() =>
+                {
+                    HideMenu();
+                });
+            }
         }
     }
 
@@ -177,11 +213,24 @@ public class HandyPadController : MonoBehaviour
         {
             isAnimating = true;
             PlayMoveAudio();
-            posIndicator.rectTransform.DOAnchorPos(new Vector2(0f, moveDistance.y), 0.5f).OnComplete(() =>
+            if (state != MenuState.UP)
             {
-                isAnimating = false;
-                OnUpSelected.Invoke();
-            });
+                posIndicator.rectTransform.DOAnchorPos(new Vector2(0f, moveDistance.y), 0.5f).OnComplete(() =>
+                {
+                    isAnimating = false;
+                    OnUpSelected.Invoke();
+                    state = MenuState.UP;
+                });
+            }
+            else
+            {
+                Debug.Log("DISMISS UP");
+                upSegment.rectTransform.DOPunchScale(new Vector3(0.9f, 0.9f, 1f), 0.25f, 1, 0.01f).OnComplete(() =>
+                {
+                    HideMenu();
+                });
+            }
+            
         }
     }
 
@@ -191,11 +240,22 @@ public class HandyPadController : MonoBehaviour
         {
             isAnimating = true;
             PlayMoveAudio();
-            posIndicator.rectTransform.DOAnchorPos(new Vector2(0f, -moveDistance.y), 0.5f).OnComplete(() =>
+            if (state != MenuState.DOWN) {
+                posIndicator.rectTransform.DOAnchorPos(new Vector2(0f, -moveDistance.y), 0.5f).OnComplete(() =>
+                {
+                    isAnimating = false;
+                    OnDownSelected.Invoke();
+                    state = MenuState.DOWN;
+                });
+            }
+            else
             {
-                isAnimating = false;
-                OnDownSelected.Invoke();
-            });
+                Debug.Log("DISMISS DOWN");
+                downSegment.rectTransform.DOPunchScale(new Vector3(0.9f, 0.9f, 1f), 0.25f, 1, 0.01f).OnComplete(() =>
+                {
+                    HideMenu();
+                });
+            }
         }
     }
 }

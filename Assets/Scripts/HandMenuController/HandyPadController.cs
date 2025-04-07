@@ -41,7 +41,6 @@ public class HandyPadController : MonoBehaviour
 
     private void HandleShowHide()
     {
-        Debug.Log("DOUBLE TAP");
         float fadeValue = isShown ? 0f : 1f;
         float scaleValue = isShown ? 0f : 1f;
         isAnimating = true;
@@ -72,7 +71,6 @@ public class HandyPadController : MonoBehaviour
     {
         if (CanDetect())
         {
-            Debug.Log("LEFT");
             isAnimating = true;
             posIndicator.rectTransform.DOAnchorPos(new Vector2(-moveDistance.x, 0f), 0.3f).OnComplete(() =>
             {
@@ -84,7 +82,6 @@ public class HandyPadController : MonoBehaviour
     {
         if (CanDetect())
         {
-            Debug.Log("RIGHT");
             isAnimating = true;
             posIndicator.rectTransform.DOAnchorPos(new Vector2(moveDistance.x, 0f), 0.3f).OnComplete(() =>
             {
@@ -97,7 +94,6 @@ public class HandyPadController : MonoBehaviour
     {
         if (CanDetect())
         {
-            Debug.Log("UP");
             isAnimating = true;
             posIndicator.rectTransform.DOAnchorPos(new Vector2(0f, moveDistance.y), 0.5f).OnComplete(() =>
             {
@@ -110,7 +106,6 @@ public class HandyPadController : MonoBehaviour
     {
         if (CanDetect())
         {
-            Debug.Log("DOWN");
             isAnimating = true;
             posIndicator.rectTransform.DOAnchorPos(new Vector2(0f, -moveDistance.y), 0.5f).OnComplete(() =>
             {

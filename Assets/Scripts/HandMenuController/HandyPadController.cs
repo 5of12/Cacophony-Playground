@@ -3,6 +3,7 @@ using Cacophony;
 using UnityEngine.UI;
 using DG.Tweening;
 using UnityEngine.Events;
+using Leap.Attachments;
 
 public class HandyPadController : MonoBehaviour
 {
@@ -52,6 +53,10 @@ public class HandyPadController : MonoBehaviour
     [HideInInspector] public UnityEvent OnMenuShown;
     [HideInInspector] public UnityEvent OnMenuHidden;
 
+    [Header("Hands")]
+    [Tooltip("Attachments hand are used to position the menu when summoned.")]
+    public AttachmentHands attachmentHands;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -64,6 +69,10 @@ public class HandyPadController : MonoBehaviour
         {
             isShown = false;
             HideMenu(false);
+        }
+        if (attachmentHands == null)
+        {
+            attachmentHands = FindFirstObjectByType<AttachmentHands>();
         }
     }
 
@@ -103,6 +112,7 @@ public class HandyPadController : MonoBehaviour
         {
             PlayShowAudio();
         }
+        attachmentHands.enabled = false;
     }
 
     public void HideMenu(bool playAudio = true)
@@ -120,6 +130,7 @@ public class HandyPadController : MonoBehaviour
             }
             OnMenuHidden.Invoke();
             state = MenuState.HIDDEN;
+            attachmentHands.enabled = true;
         });
         if (interfaceAudio && playAudio)
         {

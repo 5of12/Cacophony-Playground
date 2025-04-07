@@ -76,6 +76,7 @@ public class HandyPadController : MonoBehaviour
     {
         isAnimating = true;
         mainIndicator.transform.DOScale(1, 0.3f);
+        mainIndicator.transform.DOPunchRotation(new Vector3(60,0,0), 0.5f, 0, 0.01f);
         mainIndicator.DOFade(1, 0.3f).OnComplete(() =>
         {
             isAnimating = false;

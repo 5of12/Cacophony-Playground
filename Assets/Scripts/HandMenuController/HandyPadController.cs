@@ -44,15 +44,15 @@ public class HandyPadController : MonoBehaviour
     public AudioClip selectedOptionAudio;
 
     [HideInInspector] public UnityEvent OnLeftFocused;
-    public UnityEvent OnLeftSelected;
+    [HideInInspector] public UnityEvent OnLeftSelected;
     [HideInInspector] public UnityEvent OnRightFocused;
-    public UnityEvent OnRightSelected;
+    [HideInInspector] public UnityEvent OnRightSelected;
     [HideInInspector] public UnityEvent OnUpFocused;
-    public UnityEvent OnUpSelected;
+    [HideInInspector] public UnityEvent OnUpSelected;
     [HideInInspector] public UnityEvent OnDownFocused;
-    public UnityEvent OnDownSelected;
-    public UnityEvent OnMenuShown;
-    public UnityEvent OnMenuHidden;
+    [HideInInspector] public UnityEvent OnDownSelected;
+    [HideInInspector] public UnityEvent OnMenuShown;
+    [HideInInspector] public UnityEvent OnMenuHidden;
 
     [Header("Hands")]
     [Tooltip("Attachments hand are used to position the menu when summoned.")]
@@ -281,5 +281,11 @@ public class HandyPadController : MonoBehaviour
                 });
             }
         }
+    }
+
+    public void Update()
+    {
+        // Check for active chirality...
+
     }
 }

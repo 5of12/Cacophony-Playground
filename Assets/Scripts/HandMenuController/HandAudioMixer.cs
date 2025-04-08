@@ -5,6 +5,7 @@ using System.Collections.Generic;
 
 public class HandAudioMixer : MonoBehaviour
 {
+    public HandyPadController handPadController;
     public enum StemTrack {  UP,DOWN,LEFT,RIGHT }
     public AudioMixer mixer;
     public AudioSource upStem;
@@ -12,7 +13,7 @@ public class HandAudioMixer : MonoBehaviour
     public AudioSource leftStem;
     public AudioSource rightStem;
     private List<AudioMixerGroup> mixerGroups;
-    public StemTrack startupStem = StemTrack.UP;
+    public StemTrack startupStem;
     public StemTrack activeStem;
     private AudioSource activeAudioSource = null;
 
@@ -24,6 +25,32 @@ public class HandAudioMixer : MonoBehaviour
         downStem.loop = true;
         leftStem.loop = true;
         rightStem.loop = true;
+        handPadController.OnUpFocused.AddListener(SoloUp);
+        handPadController.OnDownFocused.AddListener(SoloDown);
+        handPadController.OnLeftFocused.AddListener(SoloLeft);
+        handPadController.OnRightFocused.AddListener(SoloRight);
+    }
+
+    public void SoloLeft()
+    {
+        Debug.Log("LEFT");
+        SoloStem(StemTrack.LEFT);
+    }
+
+    public void SoloRight()
+    {
+        Debug.Log("RIGHT");
+        SoloStem(StemTrack.RIGHT);
+    }
+
+    public void SoloUp()
+    {
+        SoloStem(StemTrack.UP);
+    }
+
+    public void SoloDown()
+    {
+        SoloStem(StemTrack.DOWN);
     }
 
     public void SoloStem(StemTrack track)
@@ -47,36 +74,32 @@ public class HandAudioMixer : MonoBehaviour
                     volumeParm = "RightVolume";
                     break;
             }
-            activeAudioSource.outputAudioMixerGroup.audioMixer.DOSetFloat(volumeParm, -80f, 0.5f).OnComplete(() =>
-            {
-                activeAudioSource.Stop();
-            });
+            activeAudioSource.outputAudioMixerGroup.audioMixer.DOSetFloat(volumeParm, -80f, 3f);
         }
 
         switch (track)
         {
             case StemTrack.UP:
-                Debug.Log("Starting UP track");
                 upStem.Play();
-                upStem.outputAudioMixerGroup.audioMixer.DOSetFloat("UpVolume", 0f, 0.5f);
+                upStem.outputAudioMixerGroup.audioMixer.DOSetFloat("UpVolume", 0f, 1f);
                 activeStem = StemTrack.UP;
                 activeAudioSource = upStem;
                 break;
             case StemTrack.DOWN:
                 downStem.Play();
-                downStem.outputAudioMixerGroup.audioMixer.DOSetFloat("DownVolume", 0f, 0.5f);
+                downStem.outputAudioMixerGroup.audioMixer.DOSetFloat("DownVolume", 0f, 1f);
                 activeStem = StemTrack.DOWN;
                 activeAudioSource = downStem;
                 break;
             case StemTrack.LEFT:
                 leftStem.Play();
-                leftStem.outputAudioMixerGroup.audioMixer.DOSetFloat("LeftVolume", 0f, 0.5f);
+                leftStem.outputAudioMixerGroup.audioMixer.DOSetFloat("LeftVolume", 0f, 1f);
                 activeStem = StemTrack.LEFT;
                 activeAudioSource = leftStem;
                 break;
             case StemTrack.RIGHT:
                 rightStem.Play();
-                rightStem.outputAudioMixerGroup.audioMixer.DOSetFloat("RightVolume", 0f, 0.5f);
+                rightStem.outputAudioMixerGroup.audioMixer.DOSetFloat("RightVolume", 0f, 1f);
                 activeStem = StemTrack.RIGHT;
                 activeAudioSource = rightStem;
                 break;

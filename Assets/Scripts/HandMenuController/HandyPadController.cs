@@ -1,8 +1,9 @@
 using UnityEngine;
-using Cacophony;
 using UnityEngine.UI;
-using DG.Tweening;
 using UnityEngine.Events;
+using Cacophony;
+using DG.Tweening;
+using Leap;
 using Leap.Attachments;
 
 public class HandyPadController : MonoBehaviour
@@ -43,19 +44,22 @@ public class HandyPadController : MonoBehaviour
     public AudioClip selectedOptionAudio;
 
     [HideInInspector] public UnityEvent OnLeftFocused;
-    [HideInInspector] public UnityEvent OnLeftSelected;
+    public UnityEvent OnLeftSelected;
     [HideInInspector] public UnityEvent OnRightFocused;
-    [HideInInspector] public UnityEvent OnRightSelected;
+    public UnityEvent OnRightSelected;
     [HideInInspector] public UnityEvent OnUpFocused;
-    [HideInInspector] public UnityEvent OnUpSelected;
+    public UnityEvent OnUpSelected;
     [HideInInspector] public UnityEvent OnDownFocused;
-    [HideInInspector] public UnityEvent OnDownSelected;
-    [HideInInspector] public UnityEvent OnMenuShown;
-    [HideInInspector] public UnityEvent OnMenuHidden;
+    public UnityEvent OnDownSelected;
+    public UnityEvent OnMenuShown;
+    public UnityEvent OnMenuHidden;
 
     [Header("Hands")]
     [Tooltip("Attachments hand are used to position the menu when summoned.")]
+    public Chirality activeChirality;
     public AttachmentHands attachmentHands;
+    public Transform leftHandParent; // The canvas will be parented here for left hand
+    public Transform rightHandParent; // The canvas will be parented here for right hand
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

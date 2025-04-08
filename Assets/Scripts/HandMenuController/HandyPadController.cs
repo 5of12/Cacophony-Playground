@@ -6,6 +6,8 @@ using DG.Tweening;
 using Leap;
 using Leap.Attachments;
 using UnityEngine.Animations;
+using System;
+using System.Collections.Generic;
 
 public class HandyPadController : MonoBehaviour
 {
@@ -39,7 +41,10 @@ public class HandyPadController : MonoBehaviour
 
     [Header("Particles")]
     public ParticleTrails particleTrails;
-    public PositionConstraint positionConstraint;
+    public Gradient upGradient;
+    public Gradient downGradient;
+    public Gradient leftGradient;
+    public Gradient rightGradient;
 
     [Header("Audio")]
     public bool interfaceAudio = true;
@@ -63,12 +68,8 @@ public class HandyPadController : MonoBehaviour
     [Header("Hands")]
     [Tooltip("Attachments hand are used to position the menu when summoned.")]
     public LeapHandConnector leapHandConnector;
-    public Chirality activeChirality;
-    public AttachmentHands attachmentHands;
-    
-    public Transform leftHandParent; // The canvas will be parented here for left hand
-    public Transform rightHandParent; // The canvas will be parented here for right hand
 
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -77,6 +78,7 @@ public class HandyPadController : MonoBehaviour
             rootTransform = transform;
         }
 
+        showHideGesture.OnGestureHoldWithPosition.AddListener(SetMenuPosition);
         showHideGesture.OnGestureEnd.AddListener(HandleShowHide);
         moveLeftGesture.OnGestureEnd.AddListener(HandleLeft);
         moveRightGesture.OnGestureEnd.AddListener(HandleRight);
@@ -87,38 +89,21 @@ public class HandyPadController : MonoBehaviour
             isShown = false;
             HideMenu(false);
         }
-        if (attachmentHands == null)
-        {
-            attachmentHands = FindFirstObjectByType<AttachmentHands>();
-        }
+
         leapHandConnector.OnNoHandPresentAfterTimeout.AddListener(HandleNoHandsAfterTimeout);
-        leapHandConnector.OnHandChiralityChanged.AddListener(HandleHandChiralityChanged);
+        // leapHandConnector.OnHandChiralityChanged.AddListener(HandleHandChiralityChanged);
+        leapHandConnector.OnNewData.AddListener(HandleHandData);
+    }
+
+    private void HandleHandData(HandDataEventArgs handData)
+    {
+        Vector3 position = handData.handPosition + handData.handPose.palmDirection * 0.1f;
+        particleTrails.SetPosition(position, !isShown);
     }
 
     private void HandleNoHandsAfterTimeout()
     {
         HideMenu(false);
-    }
-
-    private void HandleHandChiralityChanged(Chirality chirality)
-    {
-        Debug.Log("HandleHandChiralityChanged:" + chirality);
-        activeChirality = chirality;
-        if (activeChirality == Chirality.Left)
-        {
-            // Move the menu to the Left...
-            rootTransform.SetParent(leftHandParent, false);
-            ConstraintSource constraint = new ConstraintSource(){ sourceTransform = leftHandParent, weight = 1f };
-            positionConstraint.SetSource(0, constraint);
-
-        }
-        if (activeChirality == Chirality.Right)
-        {
-            // Move the menu to the Right...
-            rootTransform.SetParent(rightHandParent, false);
-            ConstraintSource constraint = new ConstraintSource() { sourceTransform = rightHandParent, weight = 1f };
-            positionConstraint.SetSource(0, constraint);
-        }
     }
 
     private void PlayShowAudio()
@@ -157,7 +142,6 @@ public class HandyPadController : MonoBehaviour
         {
             PlayShowAudio();
         }
-            attachmentHands.enabled = false;
         if (particleTrails != null)
         {
             particleTrails.DisableTrail();
@@ -179,7 +163,6 @@ public class HandyPadController : MonoBehaviour
             }
             OnMenuHidden.Invoke();
             state = MenuState.HIDDEN;
-            attachmentHands.enabled = true;
         });
         if (interfaceAudio && playAudio)
         {
@@ -196,6 +179,16 @@ public class HandyPadController : MonoBehaviour
     {
         // Returns true if menu is active and not transitioning
         return (isShown && !isAnimating);
+    }
+
+    private void SetMenuPosition(Vector3 arg0)
+    {
+        if (!isShown)
+        {
+            // Set the menu position, offset in z from the hand...
+            Vector3 handPos = arg0;
+            rootTransform.position = handPos + new Vector3(0, 0, 0.5f);
+        }
     }
 
     private void HandleShowHide()
@@ -243,6 +236,8 @@ public class HandyPadController : MonoBehaviour
                     leftSegment.rectTransform.DOScale(new Vector3(1f, 1f, 1f), 0.1f);
                 });
             }
+
+            particleTrails.SetColor(leftGradient);
         }
     }
     private void HandleRight()
@@ -271,6 +266,8 @@ public class HandyPadController : MonoBehaviour
                     rightSegment.rectTransform.DOScale(new Vector3(1f, 1f, 1f), 0.1f);
                 });
             }
+            particleTrails.SetColor(rightGradient);
+
         }
     }
 
@@ -300,7 +297,7 @@ public class HandyPadController : MonoBehaviour
                     upSegment.rectTransform.DOScale(new Vector3(1f, 1f, 1f), 0.1f);
                 });
             }
-            
+            particleTrails.SetColor(upGradient);
         }
     }
 
@@ -330,12 +327,8 @@ public class HandyPadController : MonoBehaviour
                     downSegment.rectTransform.DOScale(new Vector3(1f, 1f, 1f), 0.1f);
                 });
             }
+            particleTrails.SetColor(downGradient);
         }
     }
 
-    public void Update()
-    {
-        // Check for active chirality...
-
-    }
 }

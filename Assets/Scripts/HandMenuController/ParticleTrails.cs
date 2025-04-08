@@ -9,7 +9,7 @@ public class ParticleTrails : MonoBehaviour
     public float emitRate = 50f;
     public Gradient trailColor;
     public Gradient particlesColor;
-
+    public Light originLight;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -36,6 +36,11 @@ public class ParticleTrails : MonoBehaviour
 
         var em = particles.emission;
         em.rateOverDistance = emitRate;
+
+        if (originLight != null)
+        {
+            originLight.enabled = true;
+        }
     }
 
     public void DisableTrail()
@@ -45,5 +50,37 @@ public class ParticleTrails : MonoBehaviour
 
         var em = particles.emission;
         em.rateOverDistance = 0f;
+        if (originLight != null)
+        {
+            originLight.enabled = false;
+        }
+    }
+
+    public void SetPosition(Vector3 position, bool smooth = false)
+    {
+        if (smooth)
+        {
+            SmoothMove(position);
+        }
+        else
+        {
+            transform.position = position;
+        }
+    }
+    private void SmoothMove(Vector3 position)
+    {
+        transform.position = Vector3.Lerp(transform.position, position, Time.deltaTime * 10f);
+    }
+
+    public void SetColor(Gradient color)
+    {
+        trailRenderer.colorGradient = color;
+        var main = particles.main;
+        main.startColor = color;
+
+        if (originLight != null)
+        {
+            originLight.color = color.colorKeys[0].color;
+        }
     }
 }

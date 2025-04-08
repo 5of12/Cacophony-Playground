@@ -48,7 +48,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -107,7 +107,7 @@ Material:
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _ColorAddSubDiff: {r: 1, g: 0, b: 0, a: 0}
-    - _EmissionColor: {r: 0.509434, g: 0.509434, b: 0.509434, a: 1}
+    - _EmissionColor: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _SoftParticleFadeParams: {r: 0, g: 0, b: 0, a: 0}

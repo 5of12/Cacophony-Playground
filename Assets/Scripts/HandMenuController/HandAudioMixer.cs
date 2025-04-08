@@ -33,13 +33,11 @@ public class HandAudioMixer : MonoBehaviour
 
     public void SoloLeft()
     {
-        Debug.Log("LEFT");
         SoloStem(StemTrack.LEFT);
     }
 
     public void SoloRight()
     {
-        Debug.Log("RIGHT");
         SoloStem(StemTrack.RIGHT);
     }
 

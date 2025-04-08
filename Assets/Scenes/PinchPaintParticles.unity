@@ -285,7 +285,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 915641283}
         m_TargetAssemblyTypeName: ParticleTrails, Assembly-CSharp
-        m_MethodName: ActiveTrail
+        m_MethodName: ActivateTrail
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

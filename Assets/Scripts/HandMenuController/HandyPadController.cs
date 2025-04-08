@@ -5,6 +5,7 @@ using Cacophony;
 using DG.Tweening;
 using Leap;
 using Leap.Attachments;
+using UnityEngine.Animations;
 
 public class HandyPadController : MonoBehaviour
 {
@@ -30,11 +31,15 @@ public class HandyPadController : MonoBehaviour
     private bool isAnimating = false;
 
     [Header("UI")]
+    public Transform rootTransform;
     public Image leftSegment;
     public Image rightSegment;
     public Image upSegment;
     public Image downSegment;
+
+    [Header("Particles")]
     public ParticleTrails particleTrails;
+    public PositionConstraint positionConstraint;
 
     [Header("Audio")]
     public bool interfaceAudio = true;
@@ -44,27 +49,34 @@ public class HandyPadController : MonoBehaviour
     public AudioClip moveOptionAudio;
     public AudioClip selectedOptionAudio;
 
-    [HideInInspector] public UnityEvent OnLeftFocused;
-    [HideInInspector] public UnityEvent OnLeftSelected;
-    [HideInInspector] public UnityEvent OnRightFocused;
-    [HideInInspector] public UnityEvent OnRightSelected;
-    [HideInInspector] public UnityEvent OnUpFocused;
-    [HideInInspector] public UnityEvent OnUpSelected;
-    [HideInInspector] public UnityEvent OnDownFocused;
-    [HideInInspector] public UnityEvent OnDownSelected;
-    [HideInInspector] public UnityEvent OnMenuShown;
-    [HideInInspector] public UnityEvent OnMenuHidden;
+    [HideInInspector] public UnityEvent OnLeftFocused = new();
+    [HideInInspector] public UnityEvent OnLeftSelected = new();
+    [HideInInspector] public UnityEvent OnRightFocused = new();
+    [HideInInspector] public UnityEvent OnRightSelected = new();
+    [HideInInspector] public UnityEvent OnUpFocused = new();
+    [HideInInspector] public UnityEvent OnUpSelected = new();
+    [HideInInspector] public UnityEvent OnDownFocused = new();
+    [HideInInspector] public UnityEvent OnDownSelected = new();
+    [HideInInspector] public UnityEvent OnMenuShown = new();
+    [HideInInspector] public UnityEvent OnMenuHidden = new();
 
     [Header("Hands")]
     [Tooltip("Attachments hand are used to position the menu when summoned.")]
+    public LeapHandConnector leapHandConnector;
     public Chirality activeChirality;
     public AttachmentHands attachmentHands;
+    
     public Transform leftHandParent; // The canvas will be parented here for left hand
     public Transform rightHandParent; // The canvas will be parented here for right hand
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        if (rootTransform == null)
+        {
+            rootTransform = transform;
+        }
+
         showHideGesture.OnGestureEnd.AddListener(HandleShowHide);
         moveLeftGesture.OnGestureEnd.AddListener(HandleLeft);
         moveRightGesture.OnGestureEnd.AddListener(HandleRight);
@@ -78,6 +90,34 @@ public class HandyPadController : MonoBehaviour
         if (attachmentHands == null)
         {
             attachmentHands = FindFirstObjectByType<AttachmentHands>();
+        }
+        leapHandConnector.OnNoHandPresentAfterTimeout.AddListener(HandleNoHandsAfterTimeout);
+        leapHandConnector.OnHandChiralityChanged.AddListener(HandleHandChiralityChanged);
+    }
+
+    private void HandleNoHandsAfterTimeout()
+    {
+        HideMenu(false);
+    }
+
+    private void HandleHandChiralityChanged(Chirality chirality)
+    {
+        Debug.Log("HandleHandChiralityChanged:" + chirality);
+        activeChirality = chirality;
+        if (activeChirality == Chirality.Left)
+        {
+            // Move the menu to the Left...
+            rootTransform.SetParent(leftHandParent, false);
+            ConstraintSource constraint = new ConstraintSource(){ sourceTransform = leftHandParent, weight = 1f };
+            positionConstraint.SetSource(0, constraint);
+
+        }
+        if (activeChirality == Chirality.Right)
+        {
+            // Move the menu to the Right...
+            rootTransform.SetParent(rightHandParent, false);
+            ConstraintSource constraint = new ConstraintSource() { sourceTransform = rightHandParent, weight = 1f };
+            positionConstraint.SetSource(0, constraint);
         }
     }
 
@@ -117,8 +157,11 @@ public class HandyPadController : MonoBehaviour
         {
             PlayShowAudio();
         }
-        attachmentHands.enabled = false;
-        particleTrails.DisableTrail();
+            attachmentHands.enabled = false;
+        if (particleTrails != null)
+        {
+            particleTrails.DisableTrail();
+        }
     }
 
     public void HideMenu(bool playAudio = true)
@@ -142,7 +185,11 @@ public class HandyPadController : MonoBehaviour
         {
             PlayHideAudio();
         }
-        particleTrails.ActivateTrail();
+        if (particleTrails != null)
+        {
+            particleTrails.ActivateTrail();
+        }
+        
     }
 
     private bool CanDetect()

@@ -34,6 +34,7 @@ public class HandyPadController : MonoBehaviour
     public Image rightSegment;
     public Image upSegment;
     public Image downSegment;
+    public ParticleTrails particleTrails;
 
     [Header("Audio")]
     public bool interfaceAudio = true;
@@ -117,6 +118,7 @@ public class HandyPadController : MonoBehaviour
             PlayShowAudio();
         }
         attachmentHands.enabled = false;
+        particleTrails.DisableTrail();
     }
 
     public void HideMenu(bool playAudio = true)
@@ -140,6 +142,7 @@ public class HandyPadController : MonoBehaviour
         {
             PlayHideAudio();
         }
+        particleTrails.ActivateTrail();
     }
 
     private bool CanDetect()

@@ -22,7 +22,7 @@ public class ParticleTrails : MonoBehaviour
         main.startColor = particlesColor;
     }
 
-    public void ActiveTrail()
+    public void ActivateTrail()
     {
         // Enable the trail renderer
         trailRenderer.emitting = true;

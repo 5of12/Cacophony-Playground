@@ -8,6 +8,8 @@ public class CacophonousGestureConsumer : MonoBehaviour
     public Dictionary<string, GameObject> prefabs = new Dictionary<string, GameObject>();
     public List<HandGestureManager> gestureManagers = new();
     public GameObject gestureParent;
+    public Gradient colours;
+    public ParticleSystem particleSystem;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -40,9 +42,11 @@ public class CacophonousGestureConsumer : MonoBehaviour
         if (prefabs.ContainsKey(name))
         {
             GameObject prefab = prefabs[name];
-            GameObject instance = Instantiate(prefab, transform.position + Random.insideUnitSphere, Random.rotation);
+            GameObject instance = Instantiate(prefab, transform.position + (Random.insideUnitSphere * 0.25f), Random.rotation);
             instance.transform.SetParent(transform);
             instance.name = prefab.name;
+            instance.GetComponent<Renderer>().material.color = colours.Evaluate(Random.Range(0f, 1f));
+            particleSystem.Emit(50);
         }
         else
         {

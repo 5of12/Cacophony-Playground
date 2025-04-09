@@ -86,7 +86,6 @@ public class HandMenuQuadrantSelector : MonoBehaviour
         }
 
         leapHandConnector.OnNoHandPresentAfterTimeout.AddListener(HandleNoHandsAfterTimeout);
-        // leapHandConnector.OnHandChiralityChanged.AddListener(HandleHandChiralityChanged);
         leapHandConnector.OnNewData.AddListener(HandleHandData);
     }
 

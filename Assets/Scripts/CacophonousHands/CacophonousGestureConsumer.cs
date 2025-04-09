@@ -9,7 +9,12 @@ public class CacophonousGestureConsumer : MonoBehaviour
     public List<HandGestureManager> gestureManagers = new();
     public GameObject gestureParent;
     public Gradient colours;
-    public ParticleSystem particleSystem;
+    public ParticleSystem confetti;
+
+    [Header("Reduce Cacophony")]
+    [Tooltip("If true, the prefab will be spawned when the gesture starts. If false, it will be spawned when the gesture ends.")]
+    public bool emitImmediately = true;
+    public bool emitAfterHold = true;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -24,21 +29,29 @@ public class CacophonousGestureConsumer : MonoBehaviour
             gestureManagers.Add(gesture);
             prefabs.Add(name, prefabList.Find(x => x.name == name));
             gesture.actionProcessor.OnStart.AddListener(
-                (gesture) =>
+                (e) =>
                 {
-                    Debug.Log("Gesture started: " + gesture);
-                    SpawnPrefab(name);
+                    if (emitImmediately)
+                    {
+                        SpawnPrefab(name);
+                    }
+                }
+            );
+            gesture.actionProcessor.OnEnd.AddListener(
+                (e) =>
+                {
+                    if (emitAfterHold)
+                    {
+                        SpawnPrefab(name);
+                    }
                 }
             );
         }
-
-        Debug.Log(prefabs.Count + " prefabs loaded.");
     }
 
 
     private void SpawnPrefab(string name)
     {
-        Debug.Log("Spawning prefab: " + name);
         if (prefabs.ContainsKey(name))
         {
             GameObject prefab = prefabs[name];
@@ -46,7 +59,7 @@ public class CacophonousGestureConsumer : MonoBehaviour
             instance.transform.SetParent(transform);
             instance.name = prefab.name;
             instance.GetComponent<Renderer>().material.color = colours.Evaluate(Random.Range(0f, 1f));
-            particleSystem.Emit(50);
+            confetti.Emit(50);
         }
         else
         {

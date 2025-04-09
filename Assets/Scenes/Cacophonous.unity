@@ -613,7 +613,9 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 5
     m_NumAlphaKeys: 2
-  particleSystem: {fileID: 180207126}
+  confetti: {fileID: 180207126}
+  emitImmediately: 1
+  emitAfterHold: 0
 --- !u!4 &411374152
 Transform:
   m_ObjectHideFlags: 0
@@ -1259,7 +1261,7 @@ PrefabInstance:
     - target: {fileID: 5451856111650076118, guid: dcce8ebcf70cd479ba79ccbbd9a64c14, type: 3}
       propertyPath: actionProcessor
       value: 
-      objectReference: {fileID: 11400000, guid: 47fad2a77a4944913abd9e2108a257e2, type: 2}
+      objectReference: {fileID: 11400000, guid: 191dd462daa5d463686236a7d4d28164, type: 2}
     - target: {fileID: 5451856111650076118, guid: dcce8ebcf70cd479ba79ccbbd9a64c14, type: 3}
       propertyPath: handDataConnector
       value: 
@@ -1429,7 +1431,7 @@ PrefabInstance:
     - target: {fileID: 5451856111650076118, guid: dcce8ebcf70cd479ba79ccbbd9a64c14, type: 3}
       propertyPath: actionProcessor
       value: 
-      objectReference: {fileID: 11400000, guid: 47fad2a77a4944913abd9e2108a257e2, type: 2}
+      objectReference: {fileID: 11400000, guid: 191dd462daa5d463686236a7d4d28164, type: 2}
     - target: {fileID: 5451856111650076118, guid: dcce8ebcf70cd479ba79ccbbd9a64c14, type: 3}
       propertyPath: handDataConnector
       value: 
@@ -1588,7 +1590,7 @@ PrefabInstance:
     - target: {fileID: 5451856111650076118, guid: dcce8ebcf70cd479ba79ccbbd9a64c14, type: 3}
       propertyPath: actionProcessor
       value: 
-      objectReference: {fileID: 11400000, guid: 47fad2a77a4944913abd9e2108a257e2, type: 2}
+      objectReference: {fileID: 11400000, guid: 191dd462daa5d463686236a7d4d28164, type: 2}
     - target: {fileID: 5451856111650076118, guid: dcce8ebcf70cd479ba79ccbbd9a64c14, type: 3}
       propertyPath: handDataConnector
       value: 
@@ -1747,7 +1749,7 @@ PrefabInstance:
     - target: {fileID: 5451856111650076118, guid: dcce8ebcf70cd479ba79ccbbd9a64c14, type: 3}
       propertyPath: actionProcessor
       value: 
-      objectReference: {fileID: 11400000, guid: 47fad2a77a4944913abd9e2108a257e2, type: 2}
+      objectReference: {fileID: 11400000, guid: 191dd462daa5d463686236a7d4d28164, type: 2}
     - target: {fileID: 5451856111650076118, guid: dcce8ebcf70cd479ba79ccbbd9a64c14, type: 3}
       propertyPath: handDataConnector
       value: 
@@ -1972,7 +1974,7 @@ PrefabInstance:
     - target: {fileID: 5451856111650076118, guid: dcce8ebcf70cd479ba79ccbbd9a64c14, type: 3}
       propertyPath: actionProcessor
       value: 
-      objectReference: {fileID: 11400000, guid: 47fad2a77a4944913abd9e2108a257e2, type: 2}
+      objectReference: {fileID: 11400000, guid: 191dd462daa5d463686236a7d4d28164, type: 2}
     - target: {fileID: 5451856111650076118, guid: dcce8ebcf70cd479ba79ccbbd9a64c14, type: 3}
       propertyPath: handDataConnector
       value: 
@@ -2306,7 +2308,7 @@ PrefabInstance:
     - target: {fileID: 5451856111650076118, guid: dcce8ebcf70cd479ba79ccbbd9a64c14, type: 3}
       propertyPath: actionProcessor
       value: 
-      objectReference: {fileID: 11400000, guid: 47fad2a77a4944913abd9e2108a257e2, type: 2}
+      objectReference: {fileID: 11400000, guid: 191dd462daa5d463686236a7d4d28164, type: 2}
     - target: {fileID: 5451856111650076118, guid: dcce8ebcf70cd479ba79ccbbd9a64c14, type: 3}
       propertyPath: handDataConnector
       value: 
@@ -2587,7 +2589,7 @@ PrefabInstance:
     - target: {fileID: 5451856111650076118, guid: dcce8ebcf70cd479ba79ccbbd9a64c14, type: 3}
       propertyPath: actionProcessor
       value: 
-      objectReference: {fileID: 11400000, guid: 47fad2a77a4944913abd9e2108a257e2, type: 2}
+      objectReference: {fileID: 11400000, guid: 191dd462daa5d463686236a7d4d28164, type: 2}
     - target: {fileID: 5451856111650076118, guid: dcce8ebcf70cd479ba79ccbbd9a64c14, type: 3}
       propertyPath: handDataConnector
       value: 
@@ -2908,6 +2910,10 @@ PrefabInstance:
       propertyPath: initOnStart
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 239921553695943817, guid: 9b65b722bf2734f318737fbe3f1bd85b, type: 3}
+      propertyPath: actionProcessor
+      value: 
+      objectReference: {fileID: 11400000, guid: 191dd462daa5d463686236a7d4d28164, type: 2}
     - target: {fileID: 334639626164799563, guid: 9b65b722bf2734f318737fbe3f1bd85b, type: 3}
       propertyPath: leap
       value: 

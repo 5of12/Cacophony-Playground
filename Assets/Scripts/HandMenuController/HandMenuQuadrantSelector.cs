@@ -3,13 +3,8 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using Cacophony;
 using DG.Tweening;
-using Leap;
-using Leap.Attachments;
-using UnityEngine.Animations;
-using System;
-using System.Collections.Generic;
 
-public class HandyPadController : MonoBehaviour
+public class HandMenuQuadrantSelector : MonoBehaviour
 {
     /// <summary>
     ///  Grab Release summons and dismisses the menu.

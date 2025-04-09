@@ -6,7 +6,13 @@ public class ParticleTrails : MonoBehaviour
 {
     private ParticleSystem particles;
     public TrailRenderer trailRenderer;
-    public float emitRate = 50f;
+
+    [SerializeField]
+    private float _emitRate = 50f;
+    public float EmitRate {
+        get { return _emitRate; }
+        set { _emitRate = value; SetEmitRate(_emitRate); }
+    }
     public Gradient trailColor;
     public Gradient particlesColor;
     public Light originLight;
@@ -34,9 +40,7 @@ public class ParticleTrails : MonoBehaviour
         // Enable the trail renderer
         trailRenderer.emitting = true;
 
-        var em = particles.emission;
-        em.rateOverDistance = emitRate;
-
+        SetEmitRate(_emitRate);
         if (originLight != null)
         {
             originLight.enabled = true;
@@ -48,8 +52,7 @@ public class ParticleTrails : MonoBehaviour
         // Disable the trail renderer
         trailRenderer.emitting = false;
 
-        var em = particles.emission;
-        em.rateOverDistance = 0f;
+        EmitRate = 0;
         if (originLight != null)
         {
             originLight.enabled = false;
@@ -82,5 +85,11 @@ public class ParticleTrails : MonoBehaviour
         {
             originLight.color = color.colorKeys[0].color;
         }
+    }
+
+    public void SetEmitRate(float rate)
+    {
+        var em = particles.emission;
+        em.rateOverDistance = rate;
     }
 }

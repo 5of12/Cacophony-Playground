@@ -24,7 +24,9 @@ public class HandMenuQuadrantSelector : MonoBehaviour
     public CanvasGroup mainIndicator;
     public CanvasGroup arrowIndicators;
     public bool hideOnStart;
-    public bool isShown = false;
+    [HideInInspector]
+    private bool _isShown = false;
+    public bool IsShown { get { return _isShown; } }
     private bool isAnimating = false;
 
     [Header("UI")]
@@ -33,13 +35,6 @@ public class HandMenuQuadrantSelector : MonoBehaviour
     public Image rightSegment;
     public Image upSegment;
     public Image downSegment;
-
-    [Header("Particles")]
-    public ParticleTrails particleTrails;
-    public Gradient upGradient;
-    public Gradient downGradient;
-    public Gradient leftGradient;
-    public Gradient rightGradient;
 
     [Header("Audio")]
     public bool interfaceAudio = true;
@@ -61,9 +56,7 @@ public class HandMenuQuadrantSelector : MonoBehaviour
     [HideInInspector] public UnityEvent OnMenuHidden = new();
 
     [Header("Hands")]
-    [Tooltip("Attachments hand are used to position the menu when summoned.")]
     public LeapHandConnector leapHandConnector;
-
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -81,18 +74,11 @@ public class HandMenuQuadrantSelector : MonoBehaviour
         moveDownGesture.OnGestureEnd.AddListener(HandleDown);
         if (hideOnStart)
         {
-            isShown = false;
+            _isShown = false;
             HideMenu(false);
         }
 
         leapHandConnector.OnNoHandPresentAfterTimeout.AddListener(HandleNoHandsAfterTimeout);
-        leapHandConnector.OnNewData.AddListener(HandleHandData);
-    }
-
-    private void HandleHandData(HandDataEventArgs handData)
-    {
-        Vector3 position = handData.handPosition + handData.handPose.palmDirection * 0.1f;
-        particleTrails.SetPosition(position, !isShown);
     }
 
     private void HandleNoHandsAfterTimeout()
@@ -128,17 +114,13 @@ public class HandMenuQuadrantSelector : MonoBehaviour
         mainIndicator.DOFade(1, 0.3f).OnComplete(() =>
         {
             isAnimating = false;
-            isShown = true;
+            _isShown = true;
             OnMenuShown.Invoke();
             state = MenuState.IDLE;
         });
         if (interfaceAudio && playAudio)
         {
             PlayShowAudio();
-        }
-        if (particleTrails != null)
-        {
-            particleTrails.DisableTrail();
         }
     }
 
@@ -149,9 +131,9 @@ public class HandMenuQuadrantSelector : MonoBehaviour
         mainIndicator.DOFade(0, 0.3f).OnComplete(() =>
         {
             isAnimating = false;
-            isShown = false;
+            _isShown = false;
             // If NOT shown, reset the position...
-            if (!isShown)
+            if (!IsShown)
             {
                 ResetMenuPosition();
             }
@@ -162,22 +144,17 @@ public class HandMenuQuadrantSelector : MonoBehaviour
         {
             PlayHideAudio();
         }
-        if (particleTrails != null)
-        {
-            particleTrails.ActivateTrail();
-        }
-        
     }
 
     private bool CanDetect()
     {
         // Returns true if menu is active and not transitioning
-        return (isShown && !isAnimating);
+        return (IsShown && !isAnimating);
     }
 
     private void SetMenuPosition(Vector3 arg0)
     {
-        if (!isShown)
+        if (!IsShown)
         {
             // Set the menu position, offset in z from the hand...
             Vector3 handPos = arg0;
@@ -188,8 +165,8 @@ public class HandMenuQuadrantSelector : MonoBehaviour
     private void HandleShowHide()
     {
         // Toggle the isShown State and handle accordingly...
-        isShown = !isShown;
-        if (!isShown)
+        _isShown = !IsShown;
+        if (!IsShown)
         {
             HideMenu();
         }
@@ -230,8 +207,6 @@ public class HandMenuQuadrantSelector : MonoBehaviour
                     leftSegment.rectTransform.DOScale(new Vector3(1f, 1f, 1f), 0.1f);
                 });
             }
-
-            particleTrails.SetColor(leftGradient);
         }
     }
     private void HandleRight()
@@ -260,8 +235,6 @@ public class HandMenuQuadrantSelector : MonoBehaviour
                     rightSegment.rectTransform.DOScale(new Vector3(1f, 1f, 1f), 0.1f);
                 });
             }
-            particleTrails.SetColor(rightGradient);
-
         }
     }
 
@@ -291,7 +264,6 @@ public class HandMenuQuadrantSelector : MonoBehaviour
                     upSegment.rectTransform.DOScale(new Vector3(1f, 1f, 1f), 0.1f);
                 });
             }
-            particleTrails.SetColor(upGradient);
         }
     }
 
@@ -321,7 +293,6 @@ public class HandMenuQuadrantSelector : MonoBehaviour
                     downSegment.rectTransform.DOScale(new Vector3(1f, 1f, 1f), 0.1f);
                 });
             }
-            particleTrails.SetColor(downGradient);
         }
     }
 

@@ -10,10 +10,10 @@ public class HandMenuAudioFilterManager : MonoBehaviour
     public HandMenuQuadrantSelector handPadController;
     public enum FilterDirection {UP,DOWN,LEFT,RIGHT}
     public AudioSource audioSource;
-    public AudioHighPassFilter upFilter;
-    public AudioLowPassFilter downFilter;
-    public AudioDistortionFilter leftFilter;
-    public AudioEchoFilter rightFilter;
+    public Behaviour upFilter;
+    public Behaviour downFilter;
+    public Behaviour leftFilter;
+    public Behaviour rightFilter;
 
     private Dictionary<FilterDirection, Behaviour> filterComponentDict;
 

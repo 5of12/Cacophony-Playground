@@ -530,7 +530,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d41763c9aa5964d6f837da0fe5199528, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6dc105b346890478eac09069d3276b88, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1937,7 +1937,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.08101011, z: 0.34829444}
-  m_LocalScale: {x: 0.20000002, y: 0.19999999, z: 0.20000003}
+  m_LocalScale: {x: 0.33, y: 0.33, z: 0.33}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 726296372}
@@ -1976,7 +1976,7 @@ MonoBehaviour:
   audioSource: {fileID: 1348892893}
   upFilter: {fileID: 1348892895}
   downFilter: {fileID: 1348892896}
-  leftFilter: {fileID: 1348892899}
+  leftFilter: {fileID: 1348892900}
   rightFilter: {fileID: 1348892898}
 --- !u!4 &754146409
 Transform:
@@ -2500,7 +2500,7 @@ GameObject:
   - component: {fileID: 1348892898}
   - component: {fileID: 1348892896}
   - component: {fileID: 1348892895}
-  - component: {fileID: 1348892899}
+  - component: {fileID: 1348892900}
   m_Layer: 0
   m_Name: AudioAndFilters
   m_TagString: Untagged
@@ -2668,15 +2668,21 @@ AudioEchoFilter:
   m_DecayRatio: 0.5
   m_WetMix: 1
   m_DryMix: 1
---- !u!170 &1348892899
-AudioDistortionFilter:
+--- !u!166 &1348892900
+AudioChorusFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1348892892}
   m_Enabled: 0
-  m_DistortionLevel: 0.7
+  m_DryMix: 0.5
+  m_WetMix1: 0.5
+  m_WetMix2: 0.5
+  m_WetMix3: 0.5
+  m_Delay: 60
+  m_Rate: 0.8
+  m_Depth: 0.25
 --- !u!1 &1398006395
 GameObject:
   m_ObjectHideFlags: 0
@@ -3211,7 +3217,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 31a125c29855b4ab0a561274fda0ae6c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d41763c9aa5964d6f837da0fe5199528, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

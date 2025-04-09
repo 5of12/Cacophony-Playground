@@ -18,7 +18,7 @@ public class CacophonousGestureConsumer : MonoBehaviour
     public ParticleSystem confetti;
 
     [Header("Reduce Cacophony")]
-    [Tooltip("If true, the prefab will be spawned when the gesture starts. If false, it will be spawned when the gesture ends.")]
+    [Tooltip("Select whether to react as soon as the gesture is detected or after the action is completed")]
     public EmitMode emitMode = EmitMode.Immediate;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

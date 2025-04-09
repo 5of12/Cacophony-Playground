@@ -2518,8 +2518,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -3953406602363356563, guid: 81226802eda2f4c72bae291bf52787fc, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 7c3e59ce18b504571ac89c8321247b8e, type: 3}
-  m_Resource: {fileID: 8300000, guid: 7c3e59ce18b504571ac89c8321247b8e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 63126c99fe3764013aa28d73a1b98826, type: 3}
+  m_Resource: {fileID: 8300000, guid: 63126c99fe3764013aa28d73a1b98826, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.5
   m_Pitch: 1
@@ -2628,7 +2628,7 @@ AudioHighPassFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1348892892}
   m_Enabled: 0
-  m_CutoffFrequency: 3843
+  m_CutoffFrequency: 1200
   m_HighpassResonanceQ: 1
 --- !u!169 &1348892896
 AudioLowPassFilter:
@@ -2645,7 +2645,7 @@ AudioLowPassFilter:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.046839472
+      value: 0.045020465
       inSlope: 0
       outSlope: 0
       tangentMode: 0

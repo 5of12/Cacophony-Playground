@@ -363,7 +363,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 166326, guid: b9c7aaf0d314cb847a3b2a20e893f1b6, type: 3}
       propertyPath: m_Name
-      value: Service Provider (Desktop)
+      value: LeapHands
       objectReference: {fileID: 0}
     - target: {fileID: 432918, guid: b9c7aaf0d314cb847a3b2a20e893f1b6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -414,7 +414,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 432918, guid: b9c7aaf0d314cb847a3b2a20e893f1b6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5708852172793704434}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 166326, guid: b9c7aaf0d314cb847a3b2a20e893f1b6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2051905292}
   m_SourcePrefab: {fileID: 100100000, guid: b9c7aaf0d314cb847a3b2a20e893f1b6, type: 3}
 --- !u!1001 &1060111941
 PrefabInstance:
@@ -756,6 +759,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1921529853 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 166326, guid: b9c7aaf0d314cb847a3b2a20e893f1b6, type: 3}
+  m_PrefabInstance: {fileID: 943387026}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2051905290 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 432918, guid: b9c7aaf0d314cb847a3b2a20e893f1b6, type: 3}
@@ -766,12 +774,65 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 11435192, guid: b9c7aaf0d314cb847a3b2a20e893f1b6, type: 3}
   m_PrefabInstance: {fileID: 943387026}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1921529853}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 025cc0fa7b46aa541aba29d28d35ac09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2051905292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1921529853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dff65e725e69644b7993dc69a4895d3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lostHandPersistence: 0.25
+  interactionBounds: {fileID: 0}
+  OnNewData:
+    m_PersistentCalls:
+      m_Calls: []
+  OnHandFound:
+    m_PersistentCalls:
+      m_Calls: []
+  OnNoHandPresentAfterTimeout:
+    m_PersistentCalls:
+      m_Calls: []
+  leap: {fileID: 2051905291}
+  simplePose:
+    thumb:
+      curl: 0
+      bend: 0
+      splay: 0
+    index:
+      curl: 0
+      bend: 0
+      splay: 0
+    middle:
+      curl: 0
+      bend: 0
+      splay: 0
+    ring:
+      curl: 0
+      bend: 0
+      splay: 0
+    pinky:
+      curl: 0
+      bend: 0
+      splay: 0
+    palmDirection: {x: 0, y: 0, z: 1}
+    palmNormal: {x: 0, y: -1, z: 0}
+  handChirality: 0
+  activeChirality: 0
+  allowAnyHand: 1
+  OnHandChiralityChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &820843517821688728
 PrefabInstance:
   m_ObjectHideFlags: 0

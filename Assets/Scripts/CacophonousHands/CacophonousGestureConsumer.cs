@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class CacophonousGestureConsumer : MonoBehaviour
 {
+    public enum EmitMode
+    {
+        Immediate,
+        AfterAction
+    }
+
     public List<GameObject> prefabList = new List<GameObject>();
     public Dictionary<string, GameObject> prefabs = new Dictionary<string, GameObject>();
     public List<HandGestureManager> gestureManagers = new();
@@ -13,8 +19,7 @@ public class CacophonousGestureConsumer : MonoBehaviour
 
     [Header("Reduce Cacophony")]
     [Tooltip("If true, the prefab will be spawned when the gesture starts. If false, it will be spawned when the gesture ends.")]
-    public bool emitImmediately = true;
-    public bool emitAfterHold = true;
+    public EmitMode emitMode = EmitMode.Immediate;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -31,7 +36,7 @@ public class CacophonousGestureConsumer : MonoBehaviour
             gesture.actionProcessor.OnStart.AddListener(
                 (e) =>
                 {
-                    if (emitImmediately)
+                    if (emitMode == EmitMode.Immediate)
                     {
                         SpawnPrefab(name);
                     }
@@ -40,7 +45,7 @@ public class CacophonousGestureConsumer : MonoBehaviour
             gesture.actionProcessor.OnEnd.AddListener(
                 (e) =>
                 {
-                    if (emitAfterHold)
+                    if (emitMode == EmitMode.AfterAction)
                     {
                         SpawnPrefab(name);
                     }

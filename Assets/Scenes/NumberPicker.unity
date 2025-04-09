@@ -1738,6 +1738,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1002566061}
     m_Modifications:
+    - target: {fileID: 548540302741025691, guid: 02c745e9d3c474f3ca39dc48eaa5f1b5, type: 3}
+      propertyPath: pitchMinMax.y
+      value: 1.2
+      objectReference: {fileID: 0}
     - target: {fileID: 1533985720161770879, guid: 02c745e9d3c474f3ca39dc48eaa5f1b5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1878,6 +1882,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1510516730446752055, guid: f85c78d341d6c4b929cffc74410dcfc6, type: 3}
+      propertyPath: pitchMinMax.y
+      value: 1.2
+      objectReference: {fileID: 0}
     - target: {fileID: 2318591816845805936, guid: f85c78d341d6c4b929cffc74410dcfc6, type: 3}
       propertyPath: shapeGenerator
       value: 
@@ -1956,6 +1964,10 @@ PrefabInstance:
       propertyPath: shapeGenerator
       value: 
       objectReference: {fileID: 1413867091}
+    - target: {fileID: 7553752601704372526, guid: 2313a06b8b4174143b0e081b3a2cc1f6, type: 3}
+      propertyPath: pitchMinMax.y
+      value: 1.2
+      objectReference: {fileID: 0}
     - target: {fileID: 8791396342675748810, guid: 2313a06b8b4174143b0e081b3a2cc1f6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2049,6 +2061,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2109384464897235912, guid: 17fad9e4d6fbe44668239fa54bd4ae57, type: 3}
+      propertyPath: pitchMinMax.y
+      value: 1.2
+      objectReference: {fileID: 0}
     - target: {fileID: 2998603440600759183, guid: 17fad9e4d6fbe44668239fa54bd4ae57, type: 3}
       propertyPath: shapeGenerator
       value: 
@@ -2114,6 +2130,10 @@ PrefabInstance:
       propertyPath: shapeGenerator
       value: 
       objectReference: {fileID: 1413867091}
+    - target: {fileID: 2786605740489531253, guid: d0ef9bd4e01f14f389b451ccf09977c9, type: 3}
+      propertyPath: pitchMinMax.y
+      value: 1.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3781056340713009553, guid: d0ef9bd4e01f14f389b451ccf09977c9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

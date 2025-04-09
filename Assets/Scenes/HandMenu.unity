@@ -639,6 +639,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 742280015}
+  - {fileID: 1210321104}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &380480628
@@ -1949,7 +1950,7 @@ GameObject:
   - component: {fileID: 1210321104}
   - component: {fileID: 1210321103}
   m_Layer: 0
-  m_Name: Audio
+  m_Name: MenuAudio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2060,12 +2061,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1210321102}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 960, y: 640, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 960, y: 639.88055, z: 0.064241946}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 372554744}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1348892892
 GameObject:
@@ -9260,6 +9261,8 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
+  minParticles: 5
+  maxParticles: 500
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -9270,7 +9273,6 @@ SceneRoots:
   - {fileID: 1398006396}
   - {fileID: 5018340525867399048}
   - {fileID: 1590154013}
-  - {fileID: 1210321104}
   - {fileID: 754146409}
   - {fileID: 372554744}
   - {fileID: 8828590211411984326}

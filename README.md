@@ -9,8 +9,7 @@ A collection of examples for how to use the Cacophony Gesture Library. The examp
 
 ## Setup
 
-
-This Unity Project has a dependency on the cacophony GestureSystem as a submodule. 
+This Unity Project has a dependency on the [Cacophony Gesture System](https://github.com/5of12/cacophony) as a submodule. 
 Once cloned, go to the command line and set up submodules via:
 
 `git submodule update --init --recursive`

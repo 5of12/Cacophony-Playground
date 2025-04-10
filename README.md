@@ -1,11 +1,11 @@
 # Cacophony Playground
 
-A collection of examples for how to use the Cacophony Gesture Library. The examples show how you can use the library for practical applications as well as fun and experimentation. Each example provides engaging feedback to your actions, showing how you can use the various features of the library to build engaging and usable apps.
+A collection of examples showcasing the [Cacophony Gesture System](https://github.com/5of12/cacophony). The examples show how you can use the library for practical applications as well as fun and experimentation. Each example provides engaging feedback to your actions, demonstrating how you can use Cacophony's various features to build engaging and usable apps.
 
 ## Requirements
 
 - Tested with Unity 6000.0 (milage may vary with earlier versions)
-- Ultraleap Tracking Camera
+- [Ultraleap Tracking Camera](https://ultraleap.com)
 
 ## Setup
 
@@ -52,5 +52,4 @@ An illustration of why the Cacophony library exists. This is primarily a "How no
 
 ![Animation of a hand pinching and moving down, turning on a light bulb](/media/Cacophonous.gif "Cacophonous animation")
 
-- Form an OK pose with your hand, then move down to plug in the light bulb.
-- Notice how there is visual feedback when the gesture first detects, as you progress and on completion of the movement.
+- Observe the 'Reduce Cacophony' option on the Hand Spawner to only fire an event after the gesture has been held for a duration!

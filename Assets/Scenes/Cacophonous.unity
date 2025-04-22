@@ -663,8 +663,8 @@ MonoBehaviour:
   fogMode: 1
   fogDensity: 0.05
   fogStartDistance: 1
-  fogEndDistance: 4
-  ambientIntensity: 0.4
+  fogEndDistance: 100
+  ambientIntensity: 1
   gravity: -4.4
 --- !u!4 &411794577
 Transform:
